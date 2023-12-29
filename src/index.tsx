@@ -15,7 +15,7 @@ export default function Command() {
     console.log(values);
     const fileName = extractQuestionName(values.link);
     const prompt = getPrompt(PROMPT, values.code, values.link);
-    console.log("prompt:", prompt);
+    console.log("PROMPT:", PROMPT);
     console.log("fileName:", fileName);
     setIsLoading(true);
     const response = await AI.ask(prompt);

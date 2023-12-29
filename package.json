@@ -15,6 +15,22 @@
       "mode": "view"
     }
   ],
+  "preferences": [
+    {
+      "name": "prompt",
+      "title": "Prompt for AI",
+      "description": "Prompt for generating starter code with imports and test case",
+      "type": "textfield",
+      "required": true
+    },
+    {
+      "name": "location",
+      "title": "Location to save",
+      "description": "Location to save the file",
+      "type": "directory",
+      "required": true
+    }
+  ],
   "dependencies": {
     "@raycast/api": "^1.64.4"
   },

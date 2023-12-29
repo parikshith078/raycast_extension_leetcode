@@ -20,7 +20,8 @@ export function extractCode(text: string): string {
 }
 
 export function createFile(fileName: string, code: string) {
-  const file = `${LOCAL_PATH}${fileName}`;
+  const file = `${LOCAL_PATH}/${fileName}`;
+  console.log("file:", file);
   writeFile(file, code, "utf8", (err) => {
     if (err) {
       console.error("Error:", err);
