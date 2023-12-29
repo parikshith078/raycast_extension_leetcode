@@ -1,3 +1,6 @@
+import { writeFile } from "fs";
+import { LOCAL_PATH } from "./constants";
+
 export function extractQuestionName(link: string): string {
   const questionPath = link.split("/").filter(Boolean);
   const questionName = questionPath[questionPath.length - 1];
@@ -16,7 +19,16 @@ export function extractCode(text: string): string {
   return text.slice(codeStartIndex, codeEndIndex).trim();
 }
 
-export function createFile(fileName: string, code: string) { }
+export function createFile(fileName: string, code: string) {
+  const file = `${LOCAL_PATH}${fileName}`;
+  writeFile(file, code, "utf8", (err) => {
+    if (err) {
+      console.error("Error:", err);
+    } else {
+      console.log(`File '${fileName}' created and data written successfully.`);
+    }
+  });
+}
 
 export function getPrompt(prompt: string, code: string, link: string): string {
   const codePlaceholder = "```code```";

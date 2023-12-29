@@ -1,6 +1,6 @@
 import { Form, ActionPanel, Action, showToast, AI } from "@raycast/api";
 import { useState } from "react";
-import { extractCode, extractQuestionName, getPrompt } from "./lib/util";
+import { createFile, extractQuestionName, getPrompt } from "./lib/util";
 import { PROMPT } from "./lib/constants";
 
 export type Values = {
@@ -20,6 +20,7 @@ export default function Command() {
     setIsLoading(true);
     const response = await AI.ask(prompt);
     console.log("response:", response);
+    createFile(fileName, response);
     setIsLoading(false);
 
     showToast({ title: "Submitted form", message: "See logs for submitted values" });
